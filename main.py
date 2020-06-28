@@ -9,6 +9,7 @@ class RedditBot:
         self.password = password
         self.subreddit_name = subreddit_name
         self.visited_posts = []
+        self.dodgy_links = ['pornhub.com', 'brazzers.com', 'porn', 'xvideos.com']
 
         print('Saved credentials...')
 
@@ -22,7 +23,7 @@ class RedditBot:
                     username=self.username,
                     password=self.password)
 
-        sub = reddit.subreddit('BotTestingGround101')
+        sub = reddit.subreddit(self.subreddit_name)
         for submission in sub.new():
             if submission.id not in self.visited_posts:
                 self.visited_posts.append(submission.id)
@@ -33,5 +34,19 @@ class RedditBot:
                         submission.hide()
                     except:
                         pass
-            
+
+    #This function looks through all the recent posts in the subreddit to check whether the url of the posts is from a blacklisted website. Blacklisted websites are recorded in the dodgy_links instance variable.
+    def remove_dodgy_website_posts(self):
+        reddit = praw.Reddit(client_id=self.client_id,
+                    client_secret=self.client_secret,
+                    user_agent=self.user_agent,
+                    username=self.username,
+                    password=self.password)
+
+        sub = reddit.subreddit(self.subreddit_name)
+        for submission in sub.new():
+            for dodgy_link in self.dodgy_links:
+                if dodgy_link in submission.url:
+                    submission.reply(str(submission.author) + ', this post is from a url that is blacklisted on this subreddit. Thus, this post has been removed.')
+                    submission.delete()
 

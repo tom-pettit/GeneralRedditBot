@@ -1,10 +1,6 @@
 # Reddit Bot CLass
 
-> This is a class that can be used to create multiple different reddit bots.
-
-> ideally one sentence
-
-> include terms/tags that can be searched
+**This is a class that can be used to create multiple different reddit bots.**
 
 **Badges will go here**
 

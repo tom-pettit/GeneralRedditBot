@@ -2,7 +2,14 @@ import praw
 import time
 
 class RedditBot:
-    def __init__(self, c_id, c_secret, user_agent, username, password, subreddit_name):
+    def __init__(self, c_id, c_secret, user_agent, username, password, subreddit_name, dodgy_links, mod_names, bandwidth='medium'):
+        if bandwidth == 'medium':
+            self.bandwidth = 100
+        elif bandwidth == 'low':
+            self.bandwidth = 150
+        elif bandwidth == 'high':
+            self.bandwidth = 50
+            
         self.client_id = c_id
         self.client_secret = c_secret
         self.user_agent = user_agent
@@ -12,8 +19,8 @@ class RedditBot:
         self.visited_flaired_posts = []
         self.visited_dodgy_posts = []
         self.visited_mod_comments_posts = []
-        self.dodgy_links = ['pornhub.com', 'brazzers.com', 'porn', 'xvideos.com']
-        self.mod_names = ['tozzer7']
+        self.dodgy_links = dodgy_links
+        self.mod_names = mod_names
         self.post_mod_comments = {}
         self.previous_comments = []
 
@@ -110,10 +117,13 @@ class RedditBot:
                                     pass
         self.previous_comments = past_comments
 
+    # This is the function used to allow the bot to run every self.bandwidth seconds.
     def start_cycle(self):
         self.started = True
         while self.started is True:
             print('starting...')
+            self.remove_dodgy_website_posts()
+            self.check_new_posts_flairs()
             self.check_for_mod_comments()
             print('sleeping...')
-            time.sleep(60)
+            time.sleep(self.bandwidth)

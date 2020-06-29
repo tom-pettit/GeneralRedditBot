@@ -1,4 +1,4 @@
-# Reddit Bot CLass
+# Reddit Bot Class
 
 **This is a class that can be used to create multiple different reddit bots.**
 

@@ -5,37 +5,31 @@
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) 
 [![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
 
-***INSERT ANOTHER GRAPHIC HERE***
-
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
-
-- Most people will glance at your `README`, *maybe* star it, and leave
-- Ergo, people should understand instantly what your project is about based on your repo
-
-- Use <a href="http://recordit.co/" target="_blank">**Recordit**</a> to create quicks screencasts of your desktop and export them as `GIF`s.
-- For terminal sessions, there's <a href="https://github.com/chjj/ttystudio" target="_blank">**ttystudio**</a> which also supports exporting `GIF`s.
-
 **Recordit**
 
 ![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
 
 
-## Table of Contents (Optional)
-
-> If your `README` has a lot of info, section headers might be nice.
-
+## Table of Contents 
 - [Installation](#installation)
+- [Setup] (#setup)
 - [Features](#features)
-- [Contributing](#contributing)
-- [Team](#team)
 - [FAQ](#faq)
-- [Support](#support)
 - [License](#license)
 
 
 ---
 
-## Example (Optional)
+## Installation
+
+- To be done
+
+
+### Setup
+
+- First, the arguments for the class:
+
+> update and install this package first
 
 ```javascript
 // code away!
@@ -46,28 +40,6 @@ let generateProject = project => {
     code.push(js);
   }
 };
-```
-
----
-
-## Installation
-
-- All the `code` required to get started
-- Images of what it should look like
-
-### Clone
-
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
-
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install fvcproductions
 ```
 
 > now install npm and bower packages

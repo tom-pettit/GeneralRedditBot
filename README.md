@@ -12,7 +12,7 @@
 
 ## Table of Contents 
 - [Installation](#installation)
-- [Setup] (#setup)
+- [Setup](#setup)
 - [Features](#features)
 - [FAQ](#faq)
 - [License](#license)
@@ -26,10 +26,7 @@
 
 
 ### Setup
-
-- First, the arguments for the class:
-
-> update and install this package first
+> Before you can use this class, you have to have created a bot associated to a reddit account. I recommend using this tutorial: 
 
 ```python
 bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS])

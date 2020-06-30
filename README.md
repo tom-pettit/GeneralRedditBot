@@ -3,7 +3,7 @@
 **This is a class that can be used to create multiple different reddit bots.**
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) 
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/tozzzer/RedditBotClass?include_prereleases)
 
 ## Table of Contents 
 - [Installation](#installation)

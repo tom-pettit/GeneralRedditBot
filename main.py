@@ -109,7 +109,7 @@ class RedditBot:
                         if comment.author in self.mod_names:
                             if comment.submission.id not in self.post_mod_comments:
                                 starter = 'Here is a list of comments made my moderators of this subreddit: \n '
-                                first_comment = f"*{comment.author}: {comment.body}\n"
+                                first_comment = f"* {comment.author}: {comment.body}\n"
                                 bot_reply = f"{starter}{first_comment}"
                                 self.post_mod_comments[comment.submission.id] = [
                                     first_comment]

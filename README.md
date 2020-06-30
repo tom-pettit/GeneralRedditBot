@@ -38,11 +38,10 @@ bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBRED
 
 - [LIST_OF_DODGY_SITES]: This is a list of websites that you don't want users to be able to post to your subreddit with. eg ['pornhub.com', 'porn.com'] 
 
-- [LIST_OF_MODERATORS]: This is a list of the moderators on the subreddit you want the bot to run on. This is specifically for the 
+- [LIST_OF_MODERATORS]: This is a list of the moderators on the subreddit you want the bot to run on. This is specifically for the method: 
 ```python
 check_for_mod_comments(self) 
 ```
-method.
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 

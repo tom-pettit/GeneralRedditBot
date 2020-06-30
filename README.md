@@ -50,7 +50,7 @@ check_for_mod_comments(self)
 ## Features
 > There are many different methods that each RedditBot object can access
 
-- The first function is:
+**Check if new posts are flaired**
 
 ```python
 check_new_posts_flair(self) 

@@ -51,7 +51,9 @@ check_for_mod_comments(self)
 bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], BANDWIDTH)
 bot.start_cycle()
 ```
-> However, as will be explained later, if you only want to run certain methods, then you have to define this in the arguments of start_cycle. See the explanation of this in the #features section below, and scroll down to the start_cycle method.
+> Remember to use your own credentials instead of these placeholder arguments!
+
+> However, as will be explained later, if you only want to run certain methods, then you have to define this in the arguments of start_cycle. See the explanation of this in the Features section below, and scroll down to the start_cycle method.
 
 ---
 

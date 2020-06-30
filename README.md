@@ -131,7 +131,7 @@ start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True)
 Reach out to me at one of the following places!
 
 - Reddit at <a href="https://www.reddit.com/user/TheGeeezer" target="_blank">`TheGeeezer`</a>
-- Twitter at <a href="http://twitter.com/fvcproductions" target="_blank">`@fvcproductions`</a>
+- Twitter at <a href="https://twitter.com/tozzzer" target="_blank">`@tozzzer`</a>
 - Insert more social links here.
 
 ---

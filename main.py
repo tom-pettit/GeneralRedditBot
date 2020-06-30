@@ -1,6 +1,7 @@
 import praw
 import time
 
+
 class RedditBot:
     def __init__(self, c_id, c_secret, user_agent, username, password, subreddit_name, dodgy_links, mod_names, bandwidth='medium'):
         if bandwidth == 'medium':
@@ -26,15 +27,15 @@ class RedditBot:
 
         print('Saved credentials...')
 
-
     # This function looks through all the recent posts in the subreddit and checks if they have a flair. If they do, then the bot comments on the post to inform the user what they did wrong, and then hides the post.
     # Changes to do: Message user to alert them as well.
+
     def check_new_posts_flairs(self):
         reddit = praw.Reddit(client_id=self.client_id,
-                    client_secret=self.client_secret,
-                    user_agent=self.user_agent,
-                    username=self.username,
-                    password=self.password)
+                             client_secret=self.client_secret,
+                             user_agent=self.user_agent,
+                             username=self.username,
+                             password=self.password)
 
         sub = reddit.subreddit(self.subreddit_name)
         for submission in sub.new():
@@ -42,18 +43,19 @@ class RedditBot:
                 self.visited_flaired_posts.append(submission.id)
                 if submission.link_flair_text is None:
                     try:
-                        submission.reply(str(submission.author)+', please may you flair your post when submitting. This post will be hidden and you will have to repost it with a flair.')
+                        submission.reply(
+                            f"{submission.author}, please may you flair your post when submitting. This post will be hidden and you will have to repost it with a flair.")
                         submission.hide()
                     except:
                         pass
 
-    #This function looks through all the recent posts in the subreddit to check whether the url of the posts is from a blacklisted website. Blacklisted websites are recorded in the dodgy_links instance variable.
+    # This function looks through all the recent posts in the subreddit to check whether the url of the posts is from a blacklisted website. Blacklisted websites are recorded in the dodgy_links instance variable.
     def remove_dodgy_website_posts(self):
         reddit = praw.Reddit(client_id=self.client_id,
-                    client_secret=self.client_secret,
-                    user_agent=self.user_agent,
-                    username=self.username,
-                    password=self.password)
+                             client_secret=self.client_secret,
+                             user_agent=self.user_agent,
+                             username=self.username,
+                             password=self.password)
 
         sub = reddit.subreddit(self.subreddit_name)
         for submission in sub.new():
@@ -62,19 +64,21 @@ class RedditBot:
                 for dodgy_link in self.dodgy_links:
                     if dodgy_link in submission.url:
                         try:
-                            self.message_user(submission.author.name, 'Your latest post...', 'Dear '+str(submission.author.name)+', \n Your latest post, called: **'+str(submission.title)+'** was from a url that is blacklisted from our subreddit. Therefore, the post has been removed. \n Please may we request that you refrain from posts from this website again in future. \n Thanks, \n the '+str(self.subreddit_name)+' mod team.')
+                            self.message_user(submission.author.name, 'Your latest post...',
+                                              f"Dear {submission.author.name}, \n Your latest post, called: **{submission.title}** was from a url that is blacklisted from our subreddit. Therefore, the post has been removed. \n Please may we request that you refrain from posts from this website again in future. \n Thanks, \n the {self.subreddit_name} mod team.")
                             submission.mod.remove()
                         except:
-                            print('something went wrong removing a dodgy URL post. Ignoring...')
+                            print(
+                                'something went wrong removing a dodgy URL post. Ignoring...')
                             pass
 
-    #This function allows the bot to message a particular user with arguments for the message subject and content.
+    # This function allows the bot to message a particular user with arguments for the message subject and content.
     def message_user(self, user, msg_subject, msg_content):
         reddit = praw.Reddit(client_id=self.client_id,
-                    client_secret=self.client_secret,
-                    user_agent=self.user_agent,
-                    username=self.username,
-                    password=self.password)
+                             client_secret=self.client_secret,
+                             user_agent=self.user_agent,
+                             username=self.username,
+                             password=self.password)
 
         try:
             reddit.redditor(user).message(msg_subject, msg_content)
@@ -82,18 +86,18 @@ class RedditBot:
             print('something went wrong messaging a user. Ignoring...')
             pass
 
-    #This function looks at all new comments to see if they are by a moderator of the subreddit. If they are, then a stickied comment is made by the bot highlighting the comments made by the moderator(s) on teh relevant post.
+    # This function looks at all new comments to see if they are by a moderator of the subreddit. If they are, then a stickied comment is made by the bot highlighting the comments made by the moderator(s) on teh relevant post.
     def check_for_mod_comments(self):
         reddit = praw.Reddit(client_id=self.client_id,
-                    client_secret=self.client_secret,
-                    user_agent=self.user_agent,
-                    username=self.username,
-                    password=self.password)
+                             client_secret=self.client_secret,
+                             user_agent=self.user_agent,
+                             username=self.username,
+                             password=self.password)
 
         sub = reddit.subreddit(self.subreddit_name)
-        
+
         past_comments = []
-        #change the limit depending on the number of comments the subreddit gets
+        # change the limit depending on the number of comments the subreddit gets
         for comment in sub.comments(limit=15):
             past_comments.append(comment)
             if comment in self.previous_comments:
@@ -105,24 +109,30 @@ class RedditBot:
                         if comment.author in self.mod_names:
                             if comment.submission.id not in self.post_mod_comments:
                                 starter = 'Here is a list of comments made my moderators of this subreddit: \n '
-                                first_comment = '* '+str(comment.author)+': '+str(comment.body)+'\n'
-                                bot_reply = starter+first_comment
-                                self.post_mod_comments[comment.submission.id] = [first_comment]
+                                first_comment = f"*{comment.author}: {comment.body}\n"
+                                bot_reply = f"{starter}{first_comment}"
+                                self.post_mod_comments[comment.submission.id] = [
+                                    first_comment]
                                 try:
-                                    actual_bot_reply = comment.submission.reply(bot_reply)
-                                    actual_bot_reply.mod.distinguish(sticky=True)
+                                    actual_bot_reply = comment.submission.reply(
+                                        bot_reply)
+                                    actual_bot_reply.mod.distinguish(
+                                        sticky=True)
                                 except:
-                                    print('something went wrong making a stickied mod comment. Ignoring...')
+                                    print(
+                                        'something went wrong making a stickied mod comment. Ignoring...')
                                     pass
-                                self.post_mod_comments[comment.submission.id].append(actual_bot_reply)
+                                self.post_mod_comments[comment.submission.id].append(
+                                    actual_bot_reply)
 
                             else:
                                 print('seen this post already')
                                 try:
                                     bot_reply = self.post_mod_comments[comment.submission.id][0]
                                     starter = 'Here is a list of comments made my moderators of this subreddit: \n '
-                                    self.post_mod_comments[comment.submission.id][1].edit(starter + bot_reply + '* '+str(comment.author)+': '+str(comment.body)+'\n')
-                                    new_bot_reply = bot_reply + '* '+str(comment.author)+': '+str(comment.body)+'\n'
+                                    self.post_mod_comments[comment.submission.id][1].edit(
+                                        f"{starter}{bot_reply}* {comment.author}: {comment.body}\n")
+                                    new_bot_reply = f"{bot_reply}* {comment.author}: {comment.body}\n"
                                     self.post_mod_comments[comment.submission.id][0] = new_bot_reply
                                 except Exception as e:
                                     pass

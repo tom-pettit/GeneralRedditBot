@@ -45,6 +45,14 @@ check_for_mod_comments(self)
 
 - BANDWIDTH: This has a default value set to 'medium'. This is for people who may not have a lot of compute power on which to run their bot, or they want to cut costs, or would want the bot to run more frequently. A value of 'low' means the bot runs every 150 seconds. A value of 'medium' means the bot runs every 100 seconds. A value of 'high' means the bot runs every 150 seconds.
 
+**Running the bot**
+> In order to run the bot, instantiate the object, and then call the method: start_cycle. As shown: 
+```python
+bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], BANDWIDTH)
+bot.start_cycle()
+```
+> However, as will be explained later, if you only want to run certain methods, then you have to define this in the arguments of start_cycle. See the explanation of this in the #features section below, and scroll down to the start_cycle method.
+
 ---
 
 ## Features

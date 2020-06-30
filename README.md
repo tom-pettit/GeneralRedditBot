@@ -96,6 +96,16 @@ check_for_mod_comments(self):
 > To improve efficiency, each time the method is run, it stores the last batch of comments it went through in the instance variable: self.previous_comments. Then, when the method is run again, it checks to see if the new batch of comments contains any of the comments saved in memory from the previous batch it looked at. If any of the comments has been already seen, it skips it, and so avoids doing the same logic twice on the same comment, saving compute power.
 > Also, the logic checks to see whether the comment has been posted on a post that has since been deleted, in which case, it is not necessary to consider this comment as the post cannot be seen on the subreddit. This saves from doing unnecessary computation.
 
+**Starting the bot**
+
+```python
+start_cycle(self)
+```
+> When this method is called, an infinite loop is set up to allow the bot to run forever. Within the method are the functions that the user wants their bot to run. This is also where the BANDWIDTH argument is used, as it defines the amount of time for which the bot will pause between running all of its functions again. An example of this is shown below: 
+[![START CYCLE](https://snipboard.io/FyG6w9.jpg)]()
+
+> This shows a bot that is running remove_dodgy_website_posts, check_new_posts_flairs and check_for_mod_comments.
+
 ## Usage (Optional)
 ## Documentation (Optional)
 ## Tests (Optional)

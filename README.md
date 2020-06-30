@@ -21,18 +21,24 @@
 
 
 ### Setup
-> Before you can use this class, you have to have created a bot associated to a reddit account. I recommend using this tutorial: 
+> Before you can use this class, you have to have created a bot associated to a reddit account. I have written a guide on how to do this: https://github.com/tozzzer/CreatingARedditBotGuide 
+
+> It's also a requirement that the bot has moderator permissions for the subreddit it is intended to run upon.
 
 ```python
 bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS])
 ```
+- CLIENT_ID, CLIENT_SECRET, USER_AGENT: These are obtained from following the tutorial I have linked above. The USER_AGENT is typically just a short description of what your bot does, or a name that identifies your bot. 
 
-> now install npm and bower packages
+> A more detailed description of USER_AGENT can be found in the PRAW docs: https://praw.readthedocs.io/en/latest/getting_started/quick_start.html#:~:text=User%20Agent%3A,For%20example%2C%20android%3Acom.
 
-```shell
-$ npm install
-$ bower install
-```
+- USERNAME, PASSWORD: These are the login credentials for the reddit account the bot will be running on.
+
+- SUBREDDIT: This is the subreddit that the bot you want to create has moderator permissions for and is intended to operate upon. 
+
+- [LIST_OF_DODGY_SITES]: This is a list of websites that you don't want users to be able to post to your subreddit with. eg ['pornhub.com', 'porn.com'] 
+
+- [LIST_OF_MODERATORS]: This is a list of the moderators on the subreddit you want the bot to run on. This is specifically for the ```python check_for_mod_comments(self) ``` method.
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 

@@ -2,8 +2,8 @@
 
 **This is a class that can be used to create multiple different reddit bots.**
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/tozzzer/RedditBotClass/blob/master/LICENSE.txt) 
-![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/tozzzer/RedditBotClass?include_prereleases)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/tom-pettit/RedditBotClass/blob/master/LICENSE.txt) 
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/tom-pettit/RedditBotClass?include_prereleases)
 
 ## Table of Contents 
 - [Installation](#installation)
@@ -22,7 +22,7 @@
 
 
 ### Setup
-> Before you can use this class, you have to have created a bot associated to a reddit account. I have written a guide on how to do this: https://github.com/tozzzer/CreatingARedditBotGuide 
+> Before you can use this class, you have to have created a bot associated to a reddit account. I have written a guide on how to do this: https://github.com/tom-pettit/CreatingARedditBotGuide 
 
 > It's also a requirement that the bot has moderator permissions for the subreddit it is intended to run upon.
 

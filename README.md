@@ -55,9 +55,9 @@ check_for_mod_comments(self)
 ```python
 check_new_posts_flair(self) 
 ```
-> When this method is run, it collects the newest posts to the subreddit. It then checks if these new posts have flairs. If they do, it leaves the post alone. However, if the post has no flair, the bot comments on the post to let the user know that they need to flair their post next time, and then it automatically makes the post hidden.
+> When this method is run, it iterates through the newest posts to the subreddit. It then checks if these new posts have flairs. If they do, it leaves the post alone. However, if the post has no flair, the bot comments on the post to let the user know that they need to flair their post next time, and then it automatically makes the post hidden.
 
-> To maximise efficiency, an instance object is used to save the ID of posts that the bot has checked for a flair:
+> To improve efficiency, an instance object is used to save the ID of posts that the bot has checked for a flair:
 
 ```python
 self.visited_flaired_posts
@@ -65,6 +65,19 @@ self.visited_flaired_posts
 
 > This means that when the bot checks the newest posts each time the method is called, it won't go through all its logic twice for the same post, as it saves the IDs of previously checked posts, and doesn't fulfill its logic if it has seen a post's ID before.
 
+**Removing posts from URLs that are blacklisted**
+
+```python
+remove_dodgy_website_posts(self)
+```
+> When this method is run, it iterates through the newest posts to the subreddit. It then compares the URLs of these new posts to the links provided in the [LIST_OF_DODGY_SITES] argument. If the URL of the submission contains / is the same as any of the links in this argument, then the author of the post is private messaged to ask them to not post from that URL again, and to tell them their post has been removed.
+
+> Again, to improve efficiency, an instance object is created to save the ID of posts it has already checked the URLs of:
+
+```python
+self.visited_dodgy_posts
+```
+> This means it does not have to go through its logic for the same post each time the method is run, saving compute resources.
 
 ## Usage (Optional)
 ## Documentation (Optional)

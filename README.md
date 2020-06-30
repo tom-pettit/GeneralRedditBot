@@ -79,6 +79,19 @@ self.visited_dodgy_posts
 ```
 > This means it does not have to go through its logic for the same post each time the method is run, saving compute resources.
 
+**Messaging a user**
+
+```python
+message_user(self, user, msg_subject, msg_content)
+```
+> When this method is run, a private message is sent to the *user*, with the subject *msg_subject* and message content *msg_content*. This function is ordinarily used in the remove_dodgy_website_posts method, but can also be used as a standalone method.
+
+**Checking a post for comments from a moderator**
+
+```python
+check_for_mod_comments(self):
+```
+> When this method is called, it iterates through the most recent comments made in the subreddit. It then checks if the author of the comment is one of the moderators provided in the [LIST_OF_MODERATORS] argument given when the object was instantiated. If it isn't, then the comment is left alone. If it is made by a moderator, then if the post has NOT PREVIOUSLY...
 ## Usage (Optional)
 ## Documentation (Optional)
 ## Tests (Optional)

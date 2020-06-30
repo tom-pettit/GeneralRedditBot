@@ -120,16 +120,17 @@ start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True)
 
 ## FAQ
 
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
+- **Will there be new features coming soon?**
+    - Absolutely! If you think there is a feature that should be added, then let me know!
 
+> Please feel free to tell me any questions you think should be put here to help other people in the future!
 ---
 
 ## Support
 
 Reach out to me at one of the following places!
 
-- Website at <a href="http://fvcproductions.com" target="_blank">`fvcproductions.com`</a>
+- Reddit at <a href="https://www.reddit.com/user/TheGeeezer" target="_blank">`TheGeeezer`</a>
 - Twitter at <a href="http://twitter.com/fvcproductions" target="_blank">`@fvcproductions`</a>
 - Insert more social links here.
 

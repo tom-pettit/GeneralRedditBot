@@ -103,10 +103,8 @@ check_for_mod_comments(self):
 ```python
 start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True)
 ```
-> When this method is called, an infinite loop is set up to allow the bot to run forever. The arguments passed to the method determine which functions the bot will run. Setting the value to True (which is by default) will cause the methods to be run, and setting them to False will mean the methods won't be run. This gives the user a choice on which methods they would like their bot to run. This is also where the BANDWIDTH argument is used, as it defines the amount of time for which the bot will pause between running all of its functions again. An example of this is shown below: 
+> When this method is called, an infinite loop is set up to allow the bot to run forever. The arguments passed to the method determine which functions the bot will run. Setting the value to True (which is by default) will cause the methods to be run, and setting them to False will mean the methods won't be run. This gives the user a choice on which methods they would like their bot to run. This is also where the BANDWIDTH argument is used, as it defines the amount of time for which the bot will pause between running all of its functions again. The code to do this is as shown:
 [![START CYCLE](https://snipboard.io/kgpw2t.jpg)]()
-
-> This shows a bot that is running remove_dodgy_website_posts, check_new_posts_flairs and check_for_mod_comments.
 
 ---
 

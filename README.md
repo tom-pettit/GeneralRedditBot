@@ -10,6 +10,7 @@
 - [Setup](#setup)
 - [Features](#features)
 - [FAQ](#faq)
+- [Support](#support)
 - [License](#license)
 
 
@@ -133,10 +134,6 @@ Reach out to me at one of the following places!
 - Reddit at <a href="https://www.reddit.com/user/TheGeeezer" target="_blank">`TheGeeezer`</a>
 - Twitter at <a href="https://twitter.com/tozzzer" target="_blank">`@tozzzer`</a>
 - Insert more social links here.
-
----
-
-## Donations (Optional)
 
 - You could include a <a href="https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png" target="_blank">Gratipay</a> link as well.
 

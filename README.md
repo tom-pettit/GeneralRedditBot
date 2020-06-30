@@ -48,6 +48,24 @@ check_for_mod_comments(self)
 ---
 
 ## Features
+> There are many different methods that each RedditBot object can access
+
+- The first function is:
+
+```python
+check_new_posts_flair(self) 
+```
+> When this method is run, it collects the newest posts to the subreddit. It then checks if these new posts have flairs. If they do, it leaves the post alone. However, if the post has no flair, the bot comments on the post to let the user know that they need to flair their post next time, and then it automatically makes the post hidden.
+
+> To maximise efficiency, an instance object is used to save the ID of posts that the bot has checked for a flair:
+
+```python
+self.visited_flaired_posts
+```
+
+> This means that when the bot checks the newest posts each time the method is called, it won't go through all its logic twice for the same post, as it saves the IDs of previously checked posts, and doesn't fulfill its logic if it has seen a post's ID before.
+
+
 ## Usage (Optional)
 ## Documentation (Optional)
 ## Tests (Optional)

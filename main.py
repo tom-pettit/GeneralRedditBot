@@ -25,8 +25,6 @@ class RedditBot:
         self.post_mod_comments = {}
         self.previous_comments = []
 
-        print('Saved credentials...')
-
     # This function looks through all the recent posts in the subreddit and checks if they have a flair. If they do, then the bot comments on the post to inform the user what they did wrong, and then hides the post.
     # Changes to do: Message user to alert them as well.
 
@@ -68,8 +66,6 @@ class RedditBot:
                                               f"Dear {submission.author.name}, \n Your latest post, called: **{submission.title}** was from a url that is blacklisted from our subreddit. Therefore, the post has been removed. \n Please may we request that you refrain from posts from this website again in future. \n Thanks, \n the {self.subreddit_name} mod team.")
                             submission.mod.remove()
                         except:
-                            print(
-                                'something went wrong removing a dodgy URL post. Ignoring...')
                             pass
 
     # This function allows the bot to message a particular user with arguments for the message subject and content.
@@ -83,7 +79,6 @@ class RedditBot:
         try:
             reddit.redditor(user).message(msg_subject, msg_content)
         except:
-            print('something went wrong messaging a user. Ignoring...')
             pass
 
     # This function looks at all new comments to see if they are by a moderator of the subreddit. If they are, then a stickied comment is made by the bot highlighting the comments made by the moderator(s) on teh relevant post.
@@ -101,7 +96,6 @@ class RedditBot:
         for comment in sub.comments(limit=15):
             past_comments.append(comment)
             if comment in self.previous_comments:
-                print('comment already seen')
                 pass
             else:
                 if comment.submission.author != '[Deleted]':
@@ -119,14 +113,11 @@ class RedditBot:
                                     actual_bot_reply.mod.distinguish(
                                         sticky=True)
                                 except:
-                                    print(
-                                        'something went wrong making a stickied mod comment. Ignoring...')
                                     pass
                                 self.post_mod_comments[comment.submission.id].append(
                                     actual_bot_reply)
 
                             else:
-                                print('seen this post already')
                                 try:
                                     bot_reply = self.post_mod_comments[comment.submission.id][0]
                                     starter = 'Here is a list of comments made my moderators of this subreddit: \n '
@@ -142,7 +133,6 @@ class RedditBot:
     def start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True):
         self.started = True
         while self.started is True:
-            print('starting...')
             if dodgy_websites is True:
                 self.remove_dodgy_website_posts()
             if new_posts_flairs is True:
@@ -150,5 +140,4 @@ class RedditBot:
             if mod_comments is True:
                 self.check_for_mod_comments()
 
-            print('sleeping...')
             time.sleep(self.bandwidth)

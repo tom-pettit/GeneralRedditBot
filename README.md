@@ -2,7 +2,7 @@
 
 **This is a class that can be used to create multiple different reddit bots.**
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/tom-pettit/RedditBotClass/blob/master/LICENSE.txt) 
+![GitHub](https://img.shields.io/github/license/tom-pettit/RedditBotClass?style=for-the-badge)
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/tom-pettit/RedditBotClass?include_prereleases)
 
 ## Table of Contents 

@@ -12,7 +12,6 @@ setup(
   keywords = ['reddit bot', 'bot', 'reddit', 'praw', 'reddit-bot', 'bots'],   
   install_requires=[            
           'praw',
-          'time',
       ],
   classifiers=[
     'Development Status :: 5 - Production/Stable',      

@@ -1,1 +1,25 @@
-
+from distutils.core import setup
+setup(
+  name = 'RedditBotClass',         
+  packages = ['RedditBotClass'],   
+  version = '1.0.0',     
+  license='MIT',        
+  description = 'A library used to create reddit bots, with some pre-written functions for the bots.',   # Give a short description about your library
+  author = 'Tom Pettit',                  
+  author_email = 'tompettit36@gmail.com',     
+  url = 'https://github.com/tom-pettit/RedditBotClass',   
+  download_url = 'https://github.com/tom-pettit/RedditBotClass/archive/v1.0.0.tar.gz',   
+  keywords = ['reddit bot', 'bot', 'reddit', 'praw', 'reddit-bot', 'bots'],   
+  install_requires=[            
+          'praw',
+          'time',
+      ],
+  classifiers=[
+    'Development Status :: 5 - Production/Stable',      
+    'Intended Audience :: Developers',     
+    'Topic :: Software Development :: Build Tools',
+    'License :: OSI Approved :: MIT License',   
+    'Programming Language :: Python :: 3.7',      
+    'Programming Language :: Python :: 3.8',
+  ],
+)

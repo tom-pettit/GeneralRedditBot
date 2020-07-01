@@ -4,7 +4,7 @@ setup(
   packages = ['RedditBotClass'],   
   version = '1.0.0',     
   license='MIT',        
-  description = 'A library used to create reddit bots, with some pre-written functions for the bots.',   # Give a short description about your library
+  description = 'A library used to create reddit bots, with some pre-written functions for the bots.',  
   author = 'Tom Pettit',                  
   author_email = 'tompettit36@gmail.com',     
   url = 'https://github.com/tom-pettit/RedditBotClass',   

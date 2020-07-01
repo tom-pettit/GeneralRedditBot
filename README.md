@@ -18,8 +18,15 @@
 
 ## Installation
 
-- To be done
+> Can be installed via pip.
 
+```terminal
+pip install RedditBotClass
+```
+
+> PyPi link: https://pypi.org/project/RedditBotClass/
+
+---
 
 ### Setup
 > Before you can use this class, you have to have created a bot associated to a reddit account. I have written a guide on how to do this: https://github.com/tom-pettit/CreatingARedditBotGuide 

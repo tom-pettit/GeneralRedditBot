@@ -4,6 +4,7 @@
 
 ![GitHub](https://img.shields.io/github/license/tom-pettit/RedditBotClass?style=for-the-badge)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/tom-pettit/RedditBotClass?style=for-the-badge)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/RedditBotClass?style=for-the-badge)
 
 ## Table of Contents 
 - [Installation](#installation)

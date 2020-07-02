@@ -34,7 +34,7 @@ pip install RedditBotClass
 > It's also a requirement that the bot has moderator permissions for the subreddit it is intended to run upon.
 
 ```python
-bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], BANDWIDTH)
+bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], [LIST_OF_SWEAR_WORDS], BANDWIDTH)
 ```
 - CLIENT_ID, CLIENT_SECRET, USER_AGENT: These are obtained from following the tutorial I have linked above. The USER_AGENT is typically just a short description of what your bot does, or a name that identifies your bot. 
 
@@ -51,12 +51,14 @@ bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBRED
 check_for_mod_comments(self) 
 ```
 
+- [LIST_OF_SWEAR_WORDS]: This is a list of swear words you do not want comments to contain. eg ['fuck', 'shit']
+
 - BANDWIDTH: This has a default value set to 'medium'. This is for people who may not have a lot of compute power on which to run their bot, or they want to cut costs, or would want the bot to run more frequently. A value of 'low' means the bot runs every 150 seconds. A value of 'medium' means the bot runs every 100 seconds. A value of 'high' means the bot runs every 150 seconds.
 
 **Running the bot**
 > In order to run the bot, instantiate the object, and then call the method: start_cycle. As shown: 
 ```python
-bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], BANDWIDTH)
+bot = RedditBot(CLIENT_ID, CLIENT_SECRET, USER_AGENT, USERNAME, PASSWORD, SUBREDDIT, [LIST_OF_DODGY_SITES], [LIST_OF_MODERATORS], [LIST_OF_SWEAR_WORDS], BANDWIDTH)
 bot.start_cycle()
 ```
 > Remember to use your own credentials instead of these placeholder arguments!
@@ -115,6 +117,15 @@ check_for_mod_comments(self):
 
 > To improve efficiency, each time the method is run, it stores the last batch of comments it went through in the instance variable: self.previous_comments. Then, when the method is run again, it checks to see if the new batch of comments contains any of the comments saved in memory from the previous batch it looked at. If any of the comments has been already seen, it skips it, and so avoids doing the same logic twice on the same comment, saving compute power.
 > Also, the logic checks to see whether the comment has been posted on a post that has since been deleted, in which case, it is not necessary to consider this comment as the post cannot be seen on the subreddit. This saves from doing unnecessary computation.
+
+**Censoring comments from using swear words**
+
+```python
+censor_comments(self):
+```
+> When this comment is called, it iterates through the most recent comments made in the subreddit. It then checks if any of these comments contain one of the swear words passed in the list provided as an argument for the RedditBot class object. If a comment contains a swear word, then the user is privately messaged asking them to not use this language again, and the comment is removed. Else, if the comment is left alone.
+
+> To improve efficiency, the same technique as used in the check_for_mod_comments method is used, with the instance variable self.scanned_comments saving previous comments filtered for swear words, which means comments won't be checked twice, and the bot's logic won't have to occur more than once for each comment, saving compute resources.
 
 **Starting the bot**
 

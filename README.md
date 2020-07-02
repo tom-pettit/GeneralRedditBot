@@ -21,7 +21,7 @@
 > Can be installed via pip.
 
 ```terminal
-pip install RedditBotClass
+pip install GeneralRedditBot
 ```
 
 > PyPi link: https://pypi.org/project/GeneralRedditBot/

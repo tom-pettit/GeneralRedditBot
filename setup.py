@@ -1,15 +1,15 @@
 from distutils.core import setup
 setup(
-  name = 'RedditBotClass',         
-  packages = ['RedditBotClass'],   
-  version = '1.1.0',     
+  name = 'GeneralRedditBot',         
+  packages = ['GeneralRedditBot'],   
+  version = '2.0.0',     
   license='MIT',        
-  description = 'A library used to create reddit bots, with some pre-written functions for the bots.',  
+  description = 'A library used to create general subreddit bots using some pre-written functions for the bots.',  
   author = 'Tom Pettit',                  
   author_email = 'tompettit36@gmail.com',     
-  url = 'https://github.com/tom-pettit/RedditBotClass',   
-  download_url = 'https://github.com/tom-pettit/RedditBotClass/archive/v1.1.0.tar.gz',   
-  keywords = ['RedditBotClass', 'reddit bot', 'bot', 'reddit', 'praw', 'reddit-bot', 'bots'],   
+  url = 'https://github.com/tom-pettit/GeneralRedditBot',   
+  download_url = 'https://github.com/tom-pettit/GeneralRedditBot/archive/v2.0.0.tar.gz',   
+  keywords = ['GeneralRedditBot', 'general reddit bot', 'reddit bot', 'bot', 'reddit', 'praw', 'reddit-bot', 'bots'],   
   install_requires=[            
           'praw',
       ],

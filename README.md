@@ -1,6 +1,6 @@
-# Reddit Bot Class
+# The Generic Reddit Bot
 
-**This is a class that can be used to create multiple different reddit bots.**
+**This is a class that can be used to create general subreddit bots using some useful pre-written functions.**
 
 ![GitHub](https://img.shields.io/github/license/tom-pettit/RedditBotClass?style=for-the-badge)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/tom-pettit/RedditBotClass?style=for-the-badge)

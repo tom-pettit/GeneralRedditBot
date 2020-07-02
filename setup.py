@@ -8,7 +8,7 @@ setup(
   author = 'Tom Pettit',                  
   author_email = 'tompettit36@gmail.com',     
   url = 'https://github.com/tom-pettit/RedditBotClass',   
-  download_url = 'https://github.com/tom-pettit/RedditBotClass/archive/v1.0.0.tar.gz',   
+  download_url = 'https://github.com/tom-pettit/RedditBotClass/archive/v1.1.0.tar.gz',   
   keywords = ['RedditBotClass', 'reddit bot', 'bot', 'reddit', 'praw', 'reddit-bot', 'bots'],   
   install_requires=[            
           'praw',

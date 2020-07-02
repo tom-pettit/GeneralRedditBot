@@ -3,7 +3,7 @@ import time
 
 
 class RedditBot:
-    def __init__(self, c_id, c_secret, user_agent, username, password, subreddit_name, dodgy_links, mod_names, bandwidth='medium'):
+    def __init__(self, c_id, c_secret, user_agent, username, password, subreddit_name, dodgy_links, mod_names, swear_words, bandwidth='medium'):
         if bandwidth == 'medium':
             self.bandwidth = 100
         elif bandwidth == 'low':
@@ -24,6 +24,8 @@ class RedditBot:
         self.mod_names = mod_names
         self.post_mod_comments = {}
         self.previous_comments = []
+        self.swear_words = swear_words
+        self.scanned_comments = []
 
     # This function looks through all the recent posts in the subreddit and checks if they have a flair. If they do, then the bot comments on the post to inform the user what they did wrong, and then hides the post.
     # Changes to do: Message user to alert them as well.
@@ -43,7 +45,7 @@ class RedditBot:
                     try:
                         submission.reply(
                             f"{submission.author}, please may you flair your post when submitting. This post will be hidden and you will have to repost it with a flair.")
-                        submission.hide()
+                        submission.mod.remove()
                     except:
                         pass
 
@@ -129,8 +131,36 @@ class RedditBot:
                                     pass
         self.previous_comments = past_comments
 
+    # This functions scans the latest comments to see if they contain a swear word from the list of swear words provided to the object.
+    def censor_comments(self):
+        reddit = praw.Reddit(client_id=self.client_id,
+                             client_secret=self.client_secret,
+                             user_agent=self.user_agent,
+                             username=self.username,
+                             password=self.password)
+
+        sub = reddit.subreddit(self.subreddit_name)
+
+        past_comments = []
+        for comment in sub.comments(limit=15):
+            past_comments.append(comment)
+            if comment in self.scanned_comments:
+                pass
+            else:
+                for swear in self.swear_words:
+                    if swear in comment.body:
+                        try:
+                            self.message_user(comment.author.name, 'Inappropriate Language',
+                                              f"Dear {comment.author}, \n Your comment, \n \"**{comment.body}**\" \n contains the word {swear}, which is banned on this subreddit. Therefore, the comment has been removed. \n Please may we request that you refrain from using this language in future. \n Thanks, \n the {self.subreddit_name} mod team.")
+                            comment.mod.remove()
+                            break
+                        except:
+                            pass
+
+        self.scanned_comments = past_comments
+
     # This is the function used to allow the bot to run every self.bandwidth seconds.
-    def start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True):
+    def start_cycle(self, dodgy_websites=True, new_posts_flairs=True, mod_comments=True, censor_comments=True):
         self.started = True
         while self.started is True:
             if dodgy_websites is True:
@@ -139,5 +169,7 @@ class RedditBot:
                 self.check_new_posts_flairs()
             if mod_comments is True:
                 self.check_for_mod_comments()
+            if censor_comments is True:
+                self.censor_comments()
 
             time.sleep(self.bandwidth)

@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'RedditBotClass',         
   packages = ['RedditBotClass'],   
-  version = '1.0.0',     
+  version = '1.1.0',     
   license='MIT',        
   description = 'A library used to create reddit bots, with some pre-written functions for the bots.',  
   author = 'Tom Pettit',                  
